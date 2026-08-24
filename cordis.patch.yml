@@ -1,0 +1,12 @@
+# dsh-calendar bundle layer.
+# Installed via `dsh plugin --profile <name> add ./calendar` (which appends this
+# bundle to the profile), or layered ad-hoc via `dsh --profile <name> --patch ./cordis.patch.yml`.
+#
+# The row mounts the bundle's own entry module (exporting name/inject/Config/apply).
+- insert:
+    - id: calendar
+      name: dsh-calendar
+      # config:            # optional overrides; defaults applied from Config schema
+      #   defaultTimezone: Asia/Shanghai
+      #   calendarUrl: ""  # e.g. https://nextcloud.example.com/remote.php/dav/calendars/me/personal/
+      #   authMode: basic  # basic | google
