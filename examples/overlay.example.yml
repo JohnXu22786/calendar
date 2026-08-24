@@ -1,0 +1,19 @@
+# Example dsh overlay: mount dsh-calendar plus the official session-local
+# schedule bundle. Layer with:
+#   dsh --profile <name> --patch ./examples/overlay.example.yml
+#
+# `calendar` mounts this bundle's entry (tools cal_*).
+# `schedule` is DeepSeek Harness' own schedule subsystem (schedule_create/...)
+# which `cal_remind` is designed to feed.
+
+- insert:
+    - id: calendar
+      name: dsh-calendar
+      config:
+        defaultTimezone: Asia/Shanghai
+        authMode: basic        # basic | google
+        # serverUrl: https://nextcloud.example.com/remote.php/dav/
+        # calendarUrl: https://nextcloud.example.com/remote.php/dav/calendars/me/personal/
+
+    - id: schedule
+      name: '@deepseek-ai/dsh-schedule'
