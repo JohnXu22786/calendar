@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import * as path from 'node:path'
 import { CredentialResolver, defaultStorePath } from '../src/credentials.js'
 import { stripUserinfo } from '../src/service.js'
 
@@ -50,6 +51,6 @@ describe('stripUserinfo', () => {
 
 describe('defaultStorePath', () => {
   it('is inside the given directory', () => {
-    expect(defaultStorePath('C:\\tmp\\proj')).toBe('C:\\tmp\\proj\\.calendar-credentials.json')
+    expect(defaultStorePath('C:\\tmp\\proj')).toBe(path.join('C:\\tmp\\proj', '.calendar-credentials.json'))
   })
 })
